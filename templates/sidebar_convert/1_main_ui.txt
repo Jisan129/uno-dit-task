@@ -1,0 +1,62 @@
+# -*- coding: utf-8 -*-
+#!/usr/bin/env python
+
+# =============================================================================
+#
+# Dialog implementation generated from a XDL file.
+#
+# Created: ${GENERATED_DATETIME}
+#      by: ${UNODIT_VERSION}
+#
+# WARNING! All changes made in this file will be overwritten
+#          if the file is generated again!
+#
+# =============================================================================
+
+import uno
+import unohelper
+from com.sun.star.awt import XActionListener
+from com.sun.star.awt import XWindowListener
+from com.sun.star.task import XJobExecutor
+
+
+class ${APP_NAME}_UI(unohelper.Base, XActionListener, XWindowListener, XJobExecutor):
+    """
+    Class documentation...
+    """
+    def __init__(self, ctx=uno.getComponentContext(), dialog=None):
+        self.LocalContext = ctx
+        self.dlg = dialog
+        self.ServiceManager = self.LocalContext.ServiceManager
+        self.Toolkit = self.ServiceManager.createInstanceWithContext("com.sun.star.awt.ExtToolkit", self.LocalContext)
+
+        # -----------------------------------------------------------
+        #               Create dialog and insert controls
+        # -----------------------------------------------------------
+
+        # --------------create dialog container and set model and properties
+        self.DialogContainer = self.dlg
+        self.DialogModel = self.ServiceManager.createInstance("com.sun.star.awt.UnoControlDialogModel")
+        self.DialogContainer.setModel(self.DialogModel)
+${GEN_DIALOG_PROPERTIES}
+        ${GEN_CONTROLS}
+
+        # add the window listener
+        self.DialogContainer.addWindowListener(self)
+
+    # -----------------------------------------------------------
+    #               Action events
+    # -----------------------------------------------------------
+
+    def actionPerformed(self, oActionEvent):
+${GEN_ACTIONS_EVENTS}
+
+    # -----------------------------------------------------------
+    #               Window (dialog/panel) events
+    # -----------------------------------------------------------
+
+    def windowResized(self, oWindowEvent):
+        # print(dir(oWindowEvent.Source))
+        self.resizeControls(dialog=oWindowEvent.Source)
+
+# ----------------- END GENERATED CODE ----------------------------------------

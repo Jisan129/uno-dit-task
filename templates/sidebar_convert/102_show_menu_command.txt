@@ -1,0 +1,8 @@
+        if featureURL.Path == '${PANEL_NAME}':
+            panel_option_name = '${PANEL_OPTION_NAME}'
+            if panel_option_name:
+                app = ${PANEL_OPTION_NAME}(ctx, dialog)
+                app.showDialog()
+            else:
+                messageBox(featureURL.Path, 'DefaultMenuCommand', MsgType=MESSAGEBOX, MsgButtons=BUTTONS_OK)
+

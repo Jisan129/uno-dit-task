@@ -1,0 +1,10 @@
+    if url == 'private:resource/toolpanel/${EXTENSION_IDENTIFIER_APP}/${PANEL_NAME}':
+
+        pos_y = 20
+
+        app = ${PANEL_NAME}(context=ctx, dialog=panelWin)
+        app.showDialog()
+        panel_height = app.getHeight()
+
+        return panel_height + pos_y
+

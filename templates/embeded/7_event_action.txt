@@ -1,0 +1,3 @@
+
+        if oActionEvent.ActionCommand == '${CONTROL_NAME}_OnClick':
+            self.${CONTROL_NAME}_OnClick()

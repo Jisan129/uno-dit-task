@@ -1,0 +1,2 @@
+
+        self.${CONTROL_NAME}.${PROPERTIES} = ${VALUE}
